@@ -34,6 +34,10 @@ const activitySchema = new mongoose.Schema(
                 "PROJECT_DELETED",
                 "PROJECT_MEMBER_ADDED",
                 "PROJECT_MEMBER_REMOVED",
+                "TASK_CREATED",
+                "TASK_UPDATED",
+                "TASK_DELETED",
+                "TASK_STATUS_UPDATED",
             ],
             required: true,
         },
@@ -41,6 +45,7 @@ const activitySchema = new mongoose.Schema(
         target: {
             type: String,
             enum: [
+                "TASK",
                 "WORKSPACE",
                 "MEMBER",
                 "PROJECT",

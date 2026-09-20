@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 
 import authRouter from "./routes/auth.routes.js";
 import workspaceRouter from "./routes/workspace.routes.js";
-
+import taskRouter from "./routes/task.routes.js";
 const app = express();
 
 // CORS
@@ -24,5 +24,5 @@ app.use(cookieParser());
 // Routes
 app.use("/api/auth", authRouter);
 app.use("/api/workspace", workspaceRouter);
-
+app.use("/api/workspace", taskRouter);
 export default app;

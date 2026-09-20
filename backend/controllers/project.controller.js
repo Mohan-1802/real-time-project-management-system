@@ -67,7 +67,7 @@ export const createProject = async (req,res)=>{
 export const getProjects = async (req,res)=>{
     try {
         const {workspaceId} = req.params;
-        //validate the worspace
+        //validate the workspace
         const workspace = await Workspace.findById(workspaceId);
         if(!workspace){
             return res.status(404).json({
