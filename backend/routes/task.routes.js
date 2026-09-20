@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createTask, getTasks } from "../controllers/task.controller.js";
+import { assignTask, createTask, getTasks, removeTask, updateTask } from "../controllers/task.controller.js";
 import { protect } from "../middlewear/auth.middlewear.js";
 import { requireRole } from "../middlewear/role.middlewear.js";
 
@@ -17,5 +17,23 @@ router.get(
     protect,
     requireRole("OWNER", "ADMIN"),
     getTasks
+);
+router.patch(
+    "/:workspaceId/project/:projectId/task/:taskId",
+    protect,
+    requireRole("OWNER", "ADMIN"),
+    updateTask
+);
+router.delete(
+    "/:workspaceId/project/:projectId/task/:taskId",
+    protect,
+    requireRole("OWNER", "ADMIN"),
+    removeTask
+);
+router.patch(
+    "/:workspaceId/project/:projectId/task/:taskId/assign",
+    protect,
+    requireRole("OWNER", "ADMIN"),
+    assignTask
 );
 export default router;

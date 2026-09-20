@@ -38,6 +38,7 @@ const activitySchema = new mongoose.Schema(
                 "TASK_UPDATED",
                 "TASK_DELETED",
                 "TASK_STATUS_UPDATED",
+                "TASK_ASSIGNED",
             ],
             required: true,
         },
